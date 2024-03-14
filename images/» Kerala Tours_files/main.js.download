@@ -1,0 +1,80 @@
+jQuery(document).ready(function () {
+ var w = jQuery(window).width();
+            if (w > 1024) {
+    jQuery("#search1 .srchopen").click(function () {
+        jQuery("#search1").addClass("srchfull");
+        jQuery("#search1").animate({width: "430px"});
+        jQuery(".searchfield").focus();
+    });
+    jQuery("#search1 .srchclose").click(function () {
+        jQuery("#search1").animate({width: "13%"});
+        jQuery("#search1").removeClass("srchfull");
+    });
+}
+});
+jQuery('#search1 .srchopen').click(function () {
+
+    if (jQuery('#searchform1 #s').val() != "")
+    {
+        jQuery("#searchform1").submit();
+        //return false;
+    }
+    jQuery('#searchform1 #s').focus();
+    return false;
+});
+jQuery('#searchform1 #s').keypress(function (e) {
+    if (e.which == 13) {
+        if (jQuery('#searchform1 #s').val() != "")
+        {
+            jQuery("#searchform1").submit();
+            //return false;
+        }
+        jQuery('#searchform1 #s').focus();
+        return false;
+    }
+});
+
+jQuery(window).resize(function () {
+//    bindMenuHover();
+
+});
+
+
+jQuery(document).scroll(function () {
+
+    // t = (100 - jQuery(this).scrollTop())/100;
+    t = jQuery(this).scrollTop();
+    //alert(t);
+    if (t > 80)
+    {
+
+        jQuery('.header').fadeIn(1000);
+        jQuery('.header').addClass("bg_style", 5000);
+    }
+    else
+    {
+        jQuery('.header').removeClass("bg_style");
+    }
+
+});
+jQuery(document).ready(function () {
+    jQuery('#menu').slicknav();
+});
+
+ jQuery(window).load(function () {
+         var w = jQuery(window).width();
+            if (w > 1024) {
+        var h1 = jQuery(".blog .lft-cont").outerHeight();
+        var h2 = jQuery(".blog .rht-cont").outerHeight();
+        if (h2 < h1)
+        {
+            jQuery(".blog .rht-cont").height(h1);
+        }
+          var hh1 = jQuery(".single-experience .cout .rht").outerHeight();
+        var hh2 = jQuery(".single-experience .cout .lft").outerHeight();
+        if (hh2 < hh1)
+        {
+            jQuery(".single-experience .cout .lft").height(hh1);
+        } 
+    }
+    }).resize();
